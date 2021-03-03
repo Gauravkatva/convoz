@@ -1,4 +1,6 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
+import 'package:convoz/screens/call_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,7 +26,12 @@ class LivePerson extends StatelessWidget {
             height: 10,
           ),
           BouncingWidget(
-            onPressed: () {},
+            onPressed: isLive
+                ? () {
+                    Navigator.of(context).push(
+                        CupertinoPageRoute(builder: (context) => CallScreen()));
+                  }
+                : () {},
             scaleFactor: 2,
             child: Container(
               height: 80,

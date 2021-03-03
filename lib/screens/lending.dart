@@ -4,6 +4,7 @@ import 'package:convoz/components/button.dart';
 import 'package:convoz/screens/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class Lending extends StatefulWidget {
   @override
@@ -12,6 +13,23 @@ class Lending extends StatefulWidget {
 
 class _LendingState extends State<Lending> {
   String _imagePath = "assets/lending.jpg";
+
+  Future<void> onJoin() async {
+    // await for camera and mic permissions before pushing video page
+    await _handleCameraAndMic(Permission.microphone);
+    var micStatus = await Permission.microphone.status;
+    // push video page with given channel name
+    if (micStatus.isGranted) {
+      Navigator.of(context)
+          .push(CupertinoPageRoute(builder: (context) => HomePage()));
+    }
+  }
+
+  Future<void> _handleCameraAndMic(Permission permission) async {
+    final status = await permission.request();
+    print(status);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,10 +68,7 @@ class _LendingState extends State<Lending> {
                   textStyle: TextStyle(
                     color: Colors.white,
                   ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        CupertinoPageRoute(builder: (context) => HomePage()));
-                  },
+                  onPressed: onJoin,
                 ),
                 SizedBox(
                   height: 15,
@@ -63,10 +78,7 @@ class _LendingState extends State<Lending> {
                   textStyle: TextStyle(
                     color: Colors.white,
                   ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        CupertinoPageRoute(builder: (context) => HomePage()));
-                  },
+                  onPressed: onJoin,
                 ),
                 SizedBox(
                   height: 15,
