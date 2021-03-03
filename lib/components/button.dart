@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bouncing_widget/bouncing_widget.dart';
 
 Widget button(
     {String title,
@@ -13,12 +14,13 @@ Widget button(
       color: Colors.white,
     );
   }
-  return InkWell(
-    onTap: onPressed,
+  return BouncingWidget(
+    onPressed: onPressed,
     child: Container(
       width: 150,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
         gradient: LinearGradient(
           colors: colors,
         ),

@@ -21,6 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  bouncing_widget: ^1.2.3
+  google_fonts: ^1.1.2
+  google_nav_bar: ^4.0.2
+
   flutter:
     sdk: flutter
 

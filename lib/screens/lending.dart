@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:convoz/components/button.dart';
 import 'package:convoz/screens/home.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,30 +34,43 @@ class _LendingState extends State<Lending> {
               children: [
                 Text(
                   "CONVOZ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 80,
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 80,
+                    ),
                   ),
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                 button(
-                    title: "STREAM NOW",
-                    colors: [Colors.indigo[900], Colors.blue[900]],
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          CupertinoPageRoute(builder: (context) => HomePage()));
-                    }),
+                  title: "STREAM NOW",
+                  colors: [Colors.indigo[900], Colors.blue[900]],
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        CupertinoPageRoute(builder: (context) => HomePage()));
+                  },
+                ),
+                SizedBox(
+                  height: 15,
+                ),
                 button(
-                    title: "SIGN IN",
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          CupertinoPageRoute(builder: (context) => HomePage()));
-                    }),
+                  title: "SIGN IN",
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        CupertinoPageRoute(builder: (context) => HomePage()));
+                  },
+                ),
+                SizedBox(
+                  height: 15,
+                ),
               ],
             ),
           ),
