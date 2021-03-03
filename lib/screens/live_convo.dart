@@ -99,12 +99,12 @@ class _LiveConvoState extends State<LiveConvo> {
                           LivePerson(
                             imagePath: "assets/jeff.png",
                             name: "Jeff Bezos",
-                            isLive: false,
+                            isLive: true,
                           ),
                           LivePerson(
                             imagePath: "assets/bill.jpeg",
                             name: "Bill Gates",
-                            isLive: false,
+                            isLive: true,
                           ),
                         ],
                       ),
@@ -117,12 +117,12 @@ class _LiveConvoState extends State<LiveConvo> {
                           LivePerson(
                             imagePath: "assets/warren.png",
                             name: "Warren Buffet",
-                            isLive: false,
+                            isLive: true,
                           ),
                           LivePerson(
                             imagePath: "assets/oprah.png",
                             name: "Oprah",
-                            isLive: false,
+                            isLive: true,
                           ),
                           LivePerson(
                             imagePath: "assets/ryan.png",
@@ -162,12 +162,6 @@ class _LiveConvoState extends State<LiveConvo> {
                           width: 48,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(24),
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.pink[400],
-                                Colors.redAccent[200],
-                              ],
-                            ),
                           ),
                           child: Center(
                             child: Icon(
@@ -184,6 +178,12 @@ class _LiveConvoState extends State<LiveConvo> {
                           width: 48,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(24),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.pink[400],
+                                Colors.redAccent[200],
+                              ],
+                            ),
                           ),
                           child: Center(
                             child: Icon(

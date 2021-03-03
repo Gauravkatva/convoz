@@ -6,17 +6,21 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CallScreen extends StatefulWidget {
   String channelName;
-  CallScreen({this.channelName = settings.Channel_Name});
+  String imagePath;
+  String name;
+  CallScreen(
+      {this.channelName = settings.Channel_Name, this.imagePath, this.name});
   @override
   _CallScreenState createState() => _CallScreenState();
 }
 
 class _CallScreenState extends State<CallScreen> {
-  RtcEngine engine;
   String _imagePath = "assets/home_bg.png";
+  RtcEngine engine;
   bool _joined = false;
   int _remoteUid = null;
   bool _switch = false;
+  bool muted = false;
 
   @override
   void dispose() {
@@ -27,13 +31,14 @@ class _CallScreenState extends State<CallScreen> {
 
   @override
   void initState() {
+    muted = false;
     super.initState();
     initPlatformState();
   }
 
   Future<void> initPlatformState() async {
     // Create RTC client instance
-    var engine = await RtcEngine.create(settings.APP_ID);
+    engine = await RtcEngine.create(settings.APP_ID);
     // Define event handler
     engine.setEventHandler(RtcEngineEventHandler(
         joinChannelSuccess: (String channel, int uid, int elapsed) {
@@ -53,6 +58,7 @@ class _CallScreenState extends State<CallScreen> {
       });
     }));
     // Join channel 123
+    await engine.enableAudio();
     await engine.joinChannel(settings.Token, '123', null, 0);
   }
 
@@ -130,7 +136,7 @@ class _CallScreenState extends State<CallScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Elon Musk",
+                    widget.name,
                     style: GoogleFonts.lato(
                       textStyle: TextStyle(
                         color: Colors.white,
@@ -148,7 +154,7 @@ class _CallScreenState extends State<CallScreen> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(150),
                       image: DecorationImage(
-                        image: AssetImage("assets/elon.png"),
+                        image: AssetImage(widget.imagePath),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -200,7 +206,12 @@ class _CallScreenState extends State<CallScreen> {
                         ),
                       ),
                       BouncingWidget(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            muted = !muted;
+                          });
+                          engine.muteLocalAudioStream(muted);
+                        },
                         child: Container(
                           height: 60,
                           width: 60,
@@ -215,7 +226,7 @@ class _CallScreenState extends State<CallScreen> {
                           ),
                           child: Center(
                             child: Icon(
-                              Icons.mic,
+                              muted ? Icons.mic_off : Icons.mic,
                               color: Colors.white,
                             ),
                           ),

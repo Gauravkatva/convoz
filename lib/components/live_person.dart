@@ -28,8 +28,11 @@ class LivePerson extends StatelessWidget {
           BouncingWidget(
             onPressed: isLive
                 ? () {
-                    Navigator.of(context).push(
-                        CupertinoPageRoute(builder: (context) => CallScreen()));
+                    Navigator.of(context).push(CupertinoPageRoute(
+                        builder: (context) => CallScreen(
+                              imagePath: imagePath,
+                              name: name,
+                            )));
                   }
                 : () {},
             scaleFactor: 2,
