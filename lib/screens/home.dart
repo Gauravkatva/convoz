@@ -2,6 +2,8 @@ import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:convoz/components/live_convoz.dart';
 import 'package:convoz/components/story.dart';
 import 'package:convoz/components/trending_convoz.dart';
+import 'package:convoz/screens/live_convo.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 15, 0, 20),
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 20),
               child: SafeArea(
                 child: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
@@ -95,8 +97,8 @@ class _HomePageState extends State<HomePage> {
                                       borderRadius: BorderRadius.circular(30),
                                       gradient: LinearGradient(
                                         colors: [
-                                          Colors.indigo[400],
-                                          Colors.blue[900],
+                                          Colors.indigo[800],
+                                          Colors.blue[800],
                                         ],
                                       ),
                                     ),
@@ -160,27 +162,33 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 30,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Live Convoz",
-                            style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
+                      BouncingWidget(
+                        scaleFactor: 2,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            CupertinoPageRoute(
+                              builder: (context) => LiveConvo(),
+                            ),
+                          );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Live Convoz",
+                              style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30,
+                                ),
                               ),
                             ),
-                          ),
-                          BouncingWidget(
-                            scaleFactor: 2,
-                            onPressed: () {},
-                            child: Icon(
+                            Icon(
                               Icons.keyboard_arrow_right,
                               color: Colors.white,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: 20,
@@ -215,27 +223,31 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 30,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Trending Convoz",
-                            style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
+                      BouncingWidget(
+                        scaleFactor: 2,
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Trending Convoz",
+                              style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30,
+                                ),
                               ),
                             ),
-                          ),
-                          BouncingWidget(
-                            scaleFactor: 2,
-                            onPressed: () {},
-                            child: Icon(
-                              Icons.keyboard_arrow_right,
-                              color: Colors.white,
+                            BouncingWidget(
+                              scaleFactor: 2,
+                              onPressed: () {},
+                              child: Icon(
+                                Icons.keyboard_arrow_right,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: 20,
@@ -263,6 +275,15 @@ class _HomePageState extends State<HomePage> {
                         views: "2 M",
                         title: "Invest Right",
                         name: "Warren Buffet",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TrendingConvoz(
+                        imagePath: "assets/oprah.png",
+                        views: "25 M",
+                        title: "Fashion",
+                        name: "Oprah",
                       ),
                     ],
                   ),
