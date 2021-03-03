@@ -17,6 +17,14 @@ class _CallScreenState extends State<CallScreen> {
   bool _joined = false;
   int _remoteUid = null;
   bool _switch = false;
+
+  @override
+  void dispose() {
+    engine.leaveChannel();
+    engine.destroy();
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
