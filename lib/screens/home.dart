@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:convoz/components/live_convoz.dart';
+import 'package:convoz/components/person.dart';
 import 'package:convoz/components/story.dart';
 import 'package:convoz/components/trending_convoz.dart';
 import 'package:convoz/screens/live_convo.dart';
@@ -353,7 +356,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       BouncingWidget(
-                        onPressed: () {},
+                        onPressed: () {
+                          showSheet();
+                        },
                         child: Container(
                           height: 48,
                           width: 48,
@@ -392,6 +397,255 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+
+  void showSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xff282A3B),
+              borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(40),
+                  topRight: const Radius.circular(40)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Start with people",
+                    style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Person(
+                        imagePath: "assets/add.png",
+                        name: "",
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Person(
+                        imagePath: "assets/ex1.png",
+                        name: "",
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Person(
+                        imagePath: "assets/ex2.png",
+                        name: "",
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "Start Broad Casting",
+                    style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 60,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.greenAccent.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.greenAccent,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Start New Audio Convo",
+                              style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "32Mb March 14, 2021",
+                              style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 60,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.yellowAccent.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.music_note,
+                              color: Colors.yellow,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Audio Story",
+                                  style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "32Mb March 14, 2021",
+                                  style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 70,
+                            ),
+                            BouncingWidget(
+                              onPressed: () {},
+                              scaleFactor: 3,
+                              child: Icon(
+                                Icons.close,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 60,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.blueAccent.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.blueAccent,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Audio Draft",
+                                  style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "9.6Mb March 12, 2021",
+                                  style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 70,
+                            ),
+                            BouncingWidget(
+                              onPressed: () {},
+                              scaleFactor: 3,
+                              child: Icon(
+                                Icons.close,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

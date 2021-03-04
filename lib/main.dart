@@ -10,6 +10,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Lending(),
+      theme: ThemeData(
+        canvasColor: Colors.transparent,
+      ),
     );
   }
 }
