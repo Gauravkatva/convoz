@@ -12,7 +12,7 @@ class Lending extends StatefulWidget {
 }
 
 class _LendingState extends State<Lending> {
-  String _imagePath = "assets/lending.jpg";
+  String _imagePath = "assets/lending.png";
 
   Future<void> onJoin() async {
     // await for camera and mic permissions before pushing video page
