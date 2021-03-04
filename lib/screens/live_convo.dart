@@ -94,17 +94,17 @@ class _LiveConvoState extends State<LiveConvo> {
                           LivePerson(
                             imagePath: "assets/elon.png",
                             name: "Elon Musk",
-                            isLive: true,
+                            isTalking: true,
                           ),
                           LivePerson(
                             imagePath: "assets/jeff.png",
                             name: "Jeff Bezos",
-                            isLive: true,
+                            isTalking: false,
                           ),
                           LivePerson(
                             imagePath: "assets/bill.jpeg",
                             name: "Bill Gates",
-                            isLive: true,
+                            isTalking: false,
                           ),
                         ],
                       ),
@@ -117,17 +117,17 @@ class _LiveConvoState extends State<LiveConvo> {
                           LivePerson(
                             imagePath: "assets/warren.png",
                             name: "Warren Buffet",
-                            isLive: true,
+                            isTalking: false,
                           ),
                           LivePerson(
                             imagePath: "assets/oprah.png",
                             name: "Oprah",
-                            isLive: true,
+                            isTalking: false,
                           ),
                           LivePerson(
                             imagePath: "assets/ryan.png",
                             name: "Ryan Kumar",
-                            isLive: true,
+                            isTalking: false,
                           ),
                         ],
                       ),

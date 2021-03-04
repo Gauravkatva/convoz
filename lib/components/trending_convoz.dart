@@ -41,7 +41,6 @@ class TrendingConvoz extends StatelessWidget {
                   style: GoogleFonts.lato(
                     textStyle: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
@@ -62,7 +61,7 @@ class TrendingConvoz extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 40,
+                      width: 50,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

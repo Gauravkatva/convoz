@@ -128,13 +128,6 @@ class _HomePageState extends State<HomePage> {
                               width: 10,
                             ),
                             Story(
-                              imagePath: "assets/bill.jpeg",
-                              name: "Bill Gates",
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Story(
                               imagePath: "assets/jeff.png",
                               name: "Jeff bezos",
                             ),
@@ -145,50 +138,53 @@ class _HomePageState extends State<HomePage> {
                               imagePath: "assets/oprah.png",
                               name: "Oprah",
                             ),
-                            SizedBox(width: 10),
-                            Story(
-                              imagePath: "assets/elon.png",
-                              name: "Elon Musk",
+                            SizedBox(
+                              width: 10,
                             ),
-                            SizedBox(width: 10),
+                            Story(
+                              imagePath: "assets/bill.jpeg",
+                              name: "Bill Gates",
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
                             Story(
                               imagePath: "assets/warren.png",
                               name: "Warren Buffet",
                             ),
-                            SizedBox(width: 10),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Story(
+                              imagePath: "assets/elon.png",
+                              name: "Elon Musk",
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
                           ],
                         ),
                       ),
                       SizedBox(
                         height: 30,
                       ),
-                      BouncingWidget(
-                        scaleFactor: 2,
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            CupertinoPageRoute(
-                              builder: (context) => LiveConvo(),
-                            ),
-                          );
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Live Convoz",
-                              style: GoogleFonts.lato(
-                                textStyle: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30,
-                                ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Live Convoz",
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
                               ),
                             ),
-                            Icon(
-                              Icons.keyboard_arrow_right,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_right,
+                            color: Colors.white,
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 20,
@@ -253,8 +249,17 @@ class _HomePageState extends State<HomePage> {
                         height: 20,
                       ),
                       TrendingConvoz(
+                        imagePath: "assets/alex.png",
+                        views: "1.2M",
+                        title: "Scaling to IPO in CRE",
+                        name: "Alex Mehr",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TrendingConvoz(
                         imagePath: "assets/elon.png",
-                        views: "21 M",
+                        views: "3.12M",
                         title: "Innovation in Tech",
                         name: "Elon Musk",
                       ),
@@ -263,8 +268,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       TrendingConvoz(
                         imagePath: "assets/bill.jpeg",
-                        views: "211 M",
-                        title: "Leading Tech",
+                        views: "21k",
+                        title: "Straight Line Sales",
                         name: "Bill Gates",
                       ),
                       SizedBox(
