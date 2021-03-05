@@ -52,10 +52,11 @@ class _LendingState extends State<Lending> {
               children: [
                 Text(
                   "CONVOZ",
-                  style: GoogleFonts.lato(
+                  style: GoogleFonts.abhayaLibre(
                     textStyle: TextStyle(
                       color: Colors.white,
-                      fontSize: 80,
+                      fontSize: 90,
+                      letterSpacing: 3,
                     ),
                   ),
                 ),
